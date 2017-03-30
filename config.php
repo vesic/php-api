@@ -9,5 +9,3 @@ $password = getenv('OPENSHIFT_MYSQL_DB_PASSWORD') ? getenv('OPENSHIFT_MYSQL_DB_P
 define('DSN', sprintf("mysql:host=%s;port=%s;dbname=%s", $host, $port, $db));
 define('USERNAME', $username);
 define('PASSWORD', $password);
-
-?>

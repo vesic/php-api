@@ -1,9 +1,10 @@
 <?php
+
 require_once __DIR__ . '/vendor/autoload.php';
 
-require './model/database.php';
-require './model/Employee.php';
-require './model/EmployeeDB.php';
+require './models/database.php';
+require './models/Employee.php';
+require './models/EmployeeDB.php';
 require './controllers/EmployeesController.php';
 
 $klein = new \Klein\Klein();
