@@ -26,7 +26,6 @@ class Employee implements JsonSerializable {
         return $this->department;
     }
     
-    
     public function setDeparment($department) {
         $this->department = $department;
     }

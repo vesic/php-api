@@ -22,7 +22,7 @@ Install, configure and run MySql server.
 
 Modify config.php file with your options.
 
-Import sql from sql dump file.
+Import employee.sql file.
 
 ## Routes
 
@@ -62,3 +62,5 @@ DELETE /employees/{id} # delete employee
 ## Todo
 
 Set proper status codes for all verbs.
+
+Add CORS support.

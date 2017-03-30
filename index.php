@@ -9,6 +9,7 @@ require './model/EmployeeRepository.php';
 require './controller/EmployeesController.php';
 
 $klein = new \Klein\Klein();
+
 $controller = new EmployeesController(new EmployeeRepository());
 
 $klein->respond('GET', '/', function () {
@@ -22,7 +23,6 @@ $klein->respond('GET', '/employees', function () use ($controller) {
 $klein->respond('GET', '/employees/[:id]', function ($request) use ($controller) {
     return $controller->show($request->id);
 });
-
 
 $klein->respond('POST', '/employees', function () use ($controller) {
     return $controller->store();

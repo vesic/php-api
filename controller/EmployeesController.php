@@ -19,8 +19,8 @@ class EmployeesController {
     public function show($id) {
         $employee = $this->repository->getSingleEmployee($id);
         $response = ($employee) 
-            ? json_encode($employee)
-            : json_encode([error => "Employee not found"]);
+            ? json_encode(["data" => $employee])
+            : json_encode(["error" => "Employee not found"]);
         header('Content-Type: application/json');
         return $response;
     }
