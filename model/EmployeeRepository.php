@@ -1,7 +1,9 @@
 <?php
 
-class EmployeeDB {
-    public static function getEmployees() {
+class EmployeeRepository implements EmployeeRepositoryInterface {
+    public function __constructor() {}
+    
+    public function getEmployees() {
         $db = Database::getDB();
         $query = "SELECT * FROM employees";
         $statement = $db->query($query);
@@ -13,7 +15,7 @@ class EmployeeDB {
         return $employees;
     }
     
-    public static function getSingleEmployee($employee_id) {
+    public function getSingleEmployee($employee_id) {
         $db = Database::getDB();
         $query = 'SELECT * FROM employees WHERE id = :employee_id';
         $statement = $db->prepare($query);
@@ -28,7 +30,7 @@ class EmployeeDB {
         return null;
     }
     
-    public static function addEmployee($name, $department, $salary) {
+    public function addEmployee($name, $department, $salary) {
         $db = Database::getDB();
         $query = 'INSERT INTO employees (name, department, salary) 
                     VALUES (:name, :department, :salary)';
@@ -41,7 +43,7 @@ class EmployeeDB {
         return $result;
     }
 
-    public static function updateEmployee($id, $name, $department, $salary) {
+    public function updateEmployee($id, $name, $department, $salary) {
         $db = Database::getDB();
         $query = 'UPDATE employees SET
                         name = :name,
@@ -58,7 +60,7 @@ class EmployeeDB {
         return $result;
     }
     
-    public static function deleteEmployee($id) {
+    public function deleteEmployee($id) {
         $db = Database::getDB();
         $query = 'DELETE FROM employees WHERE id = :id';
         $statement = $db->prepare($query);
